@@ -8,11 +8,11 @@ import static com.codeborne.selenide.Condition.text;
 
 public class WikipediaSettingsTest extends BaseTest {
     @Test
-    @DisplayName("Проверка добавления французского языка в настройках")
-    @Description("Тест проверяет возможность добавления французского языка в настройках приложения")
+    @DisplayName("Проверка добавления шведского языка в настройках")
+    @Description("Тест проверяет возможность добавления шведского языка в настройках приложения")
     @Severity(SeverityLevel.MINOR)  
     @Story("Настройки языка")
-    public void testAddFrenchLanguage() {
+    public void testAddSwedishLanguage() {
         new MainPage()
                 .openMainPage()
                 .openSettings()
