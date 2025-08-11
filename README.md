@@ -9,9 +9,6 @@
     <th><a href="https://junit.org/junit5/" target="_blank">JUnit 5</a></th>
     <th><a href="https://gradle.org/" target="_blank">Gradle</a></th>
     <th><a href="https://qameta.io/" target="_blank">Allure</a></th>
-    <th><a href="https://docs.qameta.io/allure/" target="_blank">Allure Report</a></th>
-    <th><a href="https://www.jenkins.io/" target="_blank">Jenkins</a></th>
-    <th><a href="https://telegram.org/" target="_blank">Telegram</a></th>
     <th><a href="https://www.browserstack.com/" target="_blank">Browserstack</a></th>
   </tr>
 </table>
