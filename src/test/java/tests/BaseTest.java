@@ -6,6 +6,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import config.BrowserStackConfig;
 import drivers.BrowserstackDriver;
+import drivers.EmulatorDriver;
 import helpers.AttachmentsUtils;
 import io.appium.java_client.android.AndroidDriver;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -20,10 +21,21 @@ import static com.codeborne.selenide.Selenide.open;
 public class BaseTest {
 
     protected BrowserStackConfig config = ConfigFactory.create(BrowserStackConfig.class);
+    
+    private static final String env = System.getProperty("env", "BROWSERSTACK").toUpperCase();
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = BrowserstackDriver.class.getName();
+        switch (env) {
+            case "BROWSERSTACK":
+                Configuration.browser = BrowserstackDriver.class.getName();
+                break;
+            case "EMULATOR":
+                Configuration.browser = EmulatorDriver.class.getName();
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported env: " + env);
+        }
         Configuration.browserSize = null;
         Configuration.timeout = 30000;
     }
@@ -36,18 +48,21 @@ public class BaseTest {
 
     @AfterEach
     void addAttachments() {
-        AndroidDriver driver = (AndroidDriver) WebDriverRunner.getWebDriver();
+        try {
+            AndroidDriver driver = (AndroidDriver) WebDriverRunner.getWebDriver();
 
-        AttachmentsUtils.attachScreenshot(driver);
-        AttachmentsUtils.attachPageSource(driver);
-        AttachmentsUtils.attachLogs("Test finished on device: " +
-                driver.getCapabilities().getCapability("deviceName"));
+            AttachmentsUtils.attachScreenshot(driver);
+            AttachmentsUtils.attachPageSource(driver);
+            AttachmentsUtils.attachLogs("Test finished on device: " +
+                    driver.getCapabilities().getCapability("deviceName"));
 
-        String sessionId = Selenide.sessionId().toString();
-        System.out.println(sessionId);
-        AttachmentsUtils.attachVideoLink(sessionId);
-        closeWebDriver();
+            String sessionId = Selenide.sessionId().toString();
+            System.out.println(sessionId);
+            AttachmentsUtils.attachVideoLink(sessionId);
+        } catch (Exception e) {
+            System.out.println("Не удалось добавить вложения: " + e.getMessage());
+        } finally {
+            closeWebDriver();
+        }
     }
-
-
 }

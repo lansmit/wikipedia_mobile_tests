@@ -67,6 +67,6 @@ task browserstack_test(type: Test) {
 }
 
 task emulator_test(type: Test) {
-    systemProperty 'host', 'emulator'
+    systemProperty 'env', 'emulator'
     systemProperty 'device', System.getProperty('device', 'Pixel_4_API_30')
 }

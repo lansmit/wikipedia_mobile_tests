@@ -3,9 +3,8 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:config/browserstack.properties",
-        "system:properties",
-        "system:env"
+        "classpath:config/${env}.properties",
+        "classpath:config/browserstack.properties"
 })
 public interface BrowserStackConfig extends Config {
 
