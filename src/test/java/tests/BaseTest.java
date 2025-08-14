@@ -21,7 +21,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class BaseTest {
 
     protected BrowserStackConfig config = ConfigFactory.create(BrowserStackConfig.class);
-    
+
     private static final String env = System.getProperty("env", "BROWSERSTACK").toUpperCase();
 
     @BeforeAll

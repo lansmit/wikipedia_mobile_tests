@@ -13,20 +13,12 @@ import static io.appium.java_client.AppiumBy.id;
 
 public class ArticleScreen extends BaseScreen {
 
-    private final SelenideElement articleTitle = $(id("org.wikipedia.alpha:id/page_title"));
-    private final SelenideElement backButton = $(id("org.wikipedia.alpha:id/nav_back"));
     private final ElementsCollection textViewResults = $$(className("android.widget.TextView"));
 
     @Step("Проверить открытие статьи с текстом: {expectedText}")
     public ArticleScreen verifyArticleOpened(String expectedText) {
         textViewResults.findBy(text(expectedText)).shouldBe(visible);
         return this;
-    }
-
-    @Step("Вернуться к результатам поиска")
-    public SearchResultScreen goBackToResults() {
-        clickElement(backButton);
-        return new SearchResultScreen();
     }
 }
 

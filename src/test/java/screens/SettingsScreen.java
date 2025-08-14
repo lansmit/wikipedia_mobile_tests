@@ -4,13 +4,17 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 
 import com.codeborne.selenide.ElementsCollection;
+
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+
 import com.codeborne.selenide.SelenideElement;
 
 import io.appium.java_client.AppiumBy;
+
 import static io.appium.java_client.AppiumBy.className;
 import static io.appium.java_client.AppiumBy.id;
+
 import io.qameta.allure.Step;
 
 public class SettingsScreen extends BaseScreen {
