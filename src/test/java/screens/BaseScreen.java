@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 public abstract class BaseScreen {
 
     protected void waitForScreenLoad() {
-        sleep(2000); // Ожидание загрузки экрана
+        sleep(2000);
     }
 
     @Step("Кликнуть по элементу")

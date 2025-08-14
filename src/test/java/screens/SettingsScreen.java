@@ -15,7 +15,6 @@ import io.qameta.allure.Step;
 
 public class SettingsScreen extends BaseScreen {
 
-    // Локаторы для экрана настроек
     private final SelenideElement languageSettings = $$(AppiumBy.className("android.widget.TextView")).findBy(text("Wikipedia language"));
     private final ElementsCollection textViewResults = $$(className("android.widget.TextView"));
 

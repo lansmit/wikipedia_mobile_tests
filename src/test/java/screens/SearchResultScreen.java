@@ -12,7 +12,6 @@ import static io.appium.java_client.AppiumBy.id;
 
 public class SearchResultScreen extends BaseScreen {
 
-    // Локаторы для экрана результатов поиска
     private final ElementsCollection searchResult = $$(id("org.wikipedia.alpha:id/page_list_item_title"));
     private final SelenideElement backButton = $(id("org.wikipedia.alpha:id/nav_back"));
     private final ElementsCollection textViewResults = $$(className("android.widget.TextView"));

@@ -13,7 +13,6 @@ import static io.appium.java_client.AppiumBy.id;
 
 public class ArticleScreen extends BaseScreen {
 
-    // Локаторы для экрана статьи
     private final SelenideElement articleTitle = $(id("org.wikipedia.alpha:id/page_title"));
     private final SelenideElement backButton = $(id("org.wikipedia.alpha:id/nav_back"));
     private final ElementsCollection textViewResults = $$(className("android.widget.TextView"));
