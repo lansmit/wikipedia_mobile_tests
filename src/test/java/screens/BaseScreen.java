@@ -1,14 +1,14 @@
-package pages;
+package screens;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 
-public abstract class BasePage {
+public abstract class BaseScreen {
 
-    protected void waitForPageLoad() {
-        sleep(2000); // Ожидание загрузки страницы
+    protected void waitForScreenLoad() {
+        sleep(2000); // Ожидание загрузки экрана
     }
 
     @Step("Кликнуть по элементу")
@@ -33,3 +33,4 @@ public abstract class BasePage {
         element.shouldHave(text(expectedText));
     }
 }
+

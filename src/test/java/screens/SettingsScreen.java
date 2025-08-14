@@ -1,4 +1,4 @@
-package pages;
+package screens;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -13,26 +13,24 @@ import static io.appium.java_client.AppiumBy.className;
 import static io.appium.java_client.AppiumBy.id;
 import io.qameta.allure.Step;
 
-public class SettingsPage extends BasePage {
+public class SettingsScreen extends BaseScreen {
 
-    // Локаторы для страницы с настройками
+    // Локаторы для экрана настроек
     private final SelenideElement languageSettings = $$(AppiumBy.className("android.widget.TextView")).findBy(text("Wikipedia language"));
     private final ElementsCollection textViewResults = $$(className("android.widget.TextView"));
 
     @Step("Добавить язык: {languageText}")
-    public SettingsPage addLanguage(String languageText) {
+    public SettingsScreen addLanguage(String languageText) {
         clickElement(languageSettings);
         SelenideElement targetLanguage = textViewResults.findBy(text(languageText));
         clickElement(targetLanguage);
         return this;
     }
 
-    @Step("Проверить наличие языка на странице настроек: {languageText}")
-    public SettingsPage verifyLanguageAdded(String languageText) {
+    @Step("Проверить наличие языка на экране настроек: {languageText}")
+    public SettingsScreen verifyLanguageAdded(String languageText) {
         SelenideElement targetLanguage = textViewResults.findBy(text(languageText));
         targetLanguage.shouldBe(visible);
         return this;
     }
-
-
 }

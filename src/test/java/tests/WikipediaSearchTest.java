@@ -6,7 +6,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.MainPage;
+import screens.MainScreen;
 
 public class WikipediaSearchTest extends BaseTest {
     @Test
@@ -15,8 +15,8 @@ public class WikipediaSearchTest extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     @Story("Поиск статей")
     public void testSearchFunctionality() {
-        new MainPage()
-                .openMainPage()
+        new MainScreen()
+                .openMainScreen()
                 .performSearch("Java programming")
                 .verifySearchResults();
     }
@@ -28,8 +28,8 @@ public class WikipediaSearchTest extends BaseTest {
     @Story("Чтение статей")
     public void testArticleOpening() {
         String searchQuery = "Android";
-        new MainPage()
-                .openMainPage()
+        new MainScreen()
+                .openMainScreen()
                 .performSearch(searchQuery)
                 .verifySearchResults()
                 .clickFirstResult()

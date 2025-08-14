@@ -3,7 +3,7 @@ package tests;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.MainPage;
+import screens.MainScreen;
 import static com.codeborne.selenide.Condition.text;
 
 public class WikipediaSettingsTest extends BaseTest {
@@ -13,8 +13,8 @@ public class WikipediaSettingsTest extends BaseTest {
     @Severity(SeverityLevel.MINOR)  
     @Story("Настройки языка")
     public void testAddSwedishLanguage() {
-        new MainPage()
-                .openMainPage()
+        new MainScreen()
+                .openMainScreen()
                 .openSettings()
                 .addLanguage("Svenska")
                 .verifyLanguageAdded("Svenska");

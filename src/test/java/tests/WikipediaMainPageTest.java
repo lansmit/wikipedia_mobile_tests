@@ -3,20 +3,20 @@ package tests;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import pages.MainPage;
+import screens.MainScreen;
 
 @Epic("Wikipedia Mobile Tests")
-@Feature("Главная страница Wikipedia")
+@Feature("Главный экран Wikipedia")
 public class WikipediaMainPageTest extends BaseTest {
 
     @Test
-    @DisplayName("Проверка наличия раздела 'In the News' на главной странице")
-    @Description("Тест проверяет наличие раздела новостей на главной странице")
+    @DisplayName("Проверка наличия раздела 'In the News' на главном экране")
+    @Description("Тест проверяет наличие раздела новостей на главном экране")
     @Severity(SeverityLevel.NORMAL)
-    @Story("Контент главной страницы")
+    @Story("Контент главного экрана")
     public void testInTheNewsSection() {
-        new MainPage()
-                .openMainPage()
+        new MainScreen()
+                .openMainScreen()
                 .verifyNewsSection();
     }
 }
