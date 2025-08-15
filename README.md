@@ -70,6 +70,8 @@ gradle clean browserstack_test -Dhost=browserstack_test
   Allure <a href="https://jenkins.autotests.cloud/job/C35-lansm_t-test_build_for_wikipedia/7/allure/">отчёт</a>
 </h3>
 
+![](media/allure_wikipedia.jpg)
+
 ---
 ### Уведомление в Telegram при помощи бота
 ![](media/telegram_wikipedia.jpg)
